@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<title>TrackballRotator Demo</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    
+    #canvas-holder {
+        /* display: flex; */
+        width: 100vw;
+        height: 100vh;
+        align-items: center;
+        justify-content: left;
+        background-color: white;
+    }
+    
+    #webglcanvas {
+        display: block;
+        width: 70%;
+        height: 70%;
+    }
+    
+    .two {
+        display: flex;
+        flex-flow: row;
+        padding: 5px;
+        justify-content: left;
+        align-items: left;
+    }
+    
+    .one {
+        padding: 5px;
+        background-color: gray;
+        width: 50%;
+        height: 100px;
+        text-align: left;
+        position: center;
+        color: white;
+    }
+    
+    h3 {
+        margin: 5px;
+    }
+</style>
+
+<script src="./trackball-rotator.js"></script>
+<script src="https://webgl2fundamentals.org/webgl/resources/m4.js"></script>
+<script src="./shader.gpu"></script>
+<script src="./stereo_camera.js"></script>
+<script src="./DingDong.js"></script>
+<script src="./main.js"></script>
+
+</head>
+<body onload="init()">
+    <noscript><hr><h3>This page requires Javascript and a web browser that supports WebGL</h3><hr></noscript>
+    <div class="one">
+        <div class="two">
+                <h3>Ding-dong</h3>
+                <div class="slider">
+                    <span>Stretching: </span>
+                    <input type="range" min="0.2" max="1" step="0.1" value="1" id="r">
+                </div>
+                <div class="slider">
+                    <span>Slice: </span>
+                    <input type="range" min="0.2" max="1" step="0.1" value="1" id="rr">
+                </div>
+                <div class="slider">
+                    <span>Near Clipping distance: </span>
+                    <input type="range" min="0" max="10" step="1" value="1" id="nearClippingDistance">
+                </div>
+                <div class="slider">
+                    <span>Scale: </span>
+                    <input type="range" min="0" max="10" step="1" value="2" id="scale">
+                </div>
+        </div>
+
+        <div class="two">
+            <div class="slider">
+                <span>Step count: </span>
+                <input type="range" min="0" max="150" step="10" value="50" id="sphere_div">
+            </div>
+            <div class="check-box">
+                <span>Filling </span>
+                <input type="checkbox" id="filling">
+            </div>
+            <div class="slider">
+                <span>Eye separation: </span>
+                <input type="range" min="0" max="100" step="5" value="70" id="eyeSeparation">
+            </div>
+            <div class="slider">
+                <span>Convergence: </span>
+                <input type="range" min="1000" max="3000" step="100" value="2000" id="convergence">
+            </div>
+            <div class="slider">
+                <span>Update FOV: </span>
+                <input type="range" min="0.1" max="1" step="0.1" value=".7" id="FOV">
+            </div>    
+        </div>
+
+    </div>
+    <div id="canvas-holder">
+        <canvas width="500px" height="700px" id="webglcanvas"></canvas>
+    </div>
+ 
+
+</body></html>
